@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/signup',  to: 'users#new'
+
   get '/help', to: 'pages#help'
 
   root 'pages#home'
