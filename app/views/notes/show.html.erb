@@ -1,0 +1,5 @@
+<div id="map"></div>
+<% content_for :map_javascript do %>
+    <%= javascript_include_tag 'map/show_note.js' %>
+<% end %>
+<%= render @note %>

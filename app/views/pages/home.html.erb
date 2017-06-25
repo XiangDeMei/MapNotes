@@ -1,4 +1,7 @@
 <div class="center">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
+  <div id="map"></div>
+  <% content_for :map_javascript do %>
+      <%= javascript_include_tag 'map/home.js' %>
+  <% end %>
 </div>
+

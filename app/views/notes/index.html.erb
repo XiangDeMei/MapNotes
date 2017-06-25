@@ -1,0 +1,6 @@
+<div id="map"></div>
+<% content_for :map_javascript do %>
+    <%= javascript_include_tag 'map/index_note.js' %>
+<% end %>
+
+<%= render @notes %>
