@@ -10,7 +10,7 @@ Environment:
 
 * [leaflet-rails](https://github.com/axyjo/leaflet-rails/)
 
-* Database creation
+* Mysql 5.7.18
 
   ​
 
