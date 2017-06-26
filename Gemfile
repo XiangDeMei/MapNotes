@@ -34,6 +34,8 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'leaflet-rails'
 gem 'gon', '~> 6.1'
+gem 'yaml_db', '~> 0.6.0'
+gem 'mysql2', '~> 0.4.6'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
