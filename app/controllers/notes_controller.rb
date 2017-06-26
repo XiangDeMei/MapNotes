@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  before_action :correct_user, only: [:update, :edit, :destroy]
 
   def show
     @note = Note.find(params[:id])
@@ -15,7 +16,12 @@ class NotesController < ApplicationController
   end
 
   def index
-    @notes = Note.all
+    # @notes = Note.all
+    # gon.notes=[]
+    # @notes.each_with_index do |k, index|
+    #   gon.notes[index] = k.attributes
+    # end
+    @notes = current_user.notes
     gon.notes=[]
     @notes.each_with_index do |k, index|
       gon.notes[index] = k.attributes
@@ -49,7 +55,7 @@ class NotesController < ApplicationController
 
   private
     def note_params
-      params.require(:note).permit(:content, :user_id, :longitude, :latitude)
+      params.require(:note).permit(:content, :user_id, :longitude, :latitude, :title)
     end
 
     def correct_user

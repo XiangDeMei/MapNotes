@@ -1,6 +1,8 @@
 <div id="note-form-wrapper">
   <%= form_for @note do |f| %>
       <h2><%= h2 %></h2>
+      <%= f.label "Title" %>
+      <%= f.text_field :title %>
       <%= f.label "Content" %>
       <%= f.text_area :content %>
       <%= f.hidden_field :latitude %>

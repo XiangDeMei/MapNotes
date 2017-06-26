@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A map-based note application.
 
-Things you may want to cover:
+Environment:
 
-* Ruby version
+* Ruby-2.4.0
 
-* System dependencies
+* Rails 5.1.1
 
-* Configuration
+* [leaflet-rails](https://github.com/axyjo/leaflet-rails/)
 
 * Database creation
 
-* Database initialization
+  ​
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

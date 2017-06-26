@@ -1,7 +1,14 @@
 <div class="center">
   <div id="map"></div>
-  <% content_for :map_javascript do %>
-      <%= javascript_include_tag 'map/home.js' %>
-  <% end %>
+  <% if signed_in? %>
+      <% content_for :map_javascript do %>
+          <%= javascript_include_tag 'map/index_note.js' %>
+      <% end %>
+      <%= render @notes %>
+  <% else %>
+      <% content_for :map_javascript do %>
+          <%= javascript_include_tag 'map/home.js' %>
+      <% end %>
+  <% end%>
 </div>
 
