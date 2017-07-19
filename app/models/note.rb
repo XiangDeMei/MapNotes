@@ -5,4 +5,6 @@ class Note < ApplicationRecord
   validates :latitude, presence: true
 
   belongs_to :user
+  has_many :notetags
+  has_many :tags, through: :notetags
 end
