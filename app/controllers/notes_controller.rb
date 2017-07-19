@@ -16,11 +16,6 @@ class NotesController < ApplicationController
   end
 
   def index
-    # @notes = Note.all
-    # gon.notes=[]
-    # @notes.each_with_index do |k, index|
-    #   gon.notes[index] = k.attributes
-    # end
     @notes = current_user.notes
     gon.notes=[]
     @notes.each_with_index do |k, index|
