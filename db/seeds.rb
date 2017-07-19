@@ -9,4 +9,4 @@
 t1 = Tag.create(name:"a")
 t2 = Tag.create(name:"b")
 t3 = Tag.create(name:"c")
-n = Note.create(title: "test", user_id: 1, latitude:29.9090876153, longitude:121.6371381786, content: "ttdsddddddd", git :[t1,t2,t3])
+n = Note.create(title: "test", user_id: 1, latitude:29.9090876153, longitude:121.6371381786, content: "ttdsddddddd", tags:[t1,t2,t3])
