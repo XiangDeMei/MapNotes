@@ -50,7 +50,7 @@ class NotesController < ApplicationController
 
   private
     def note_params
-      params.require(:note).permit(:content, :user_id, :longitude, :latitude, :title)
+      params.require(:note).permit(:content, :user_id, :longitude, :latitude, :title, :taglist)
     end
 
     def correct_user
