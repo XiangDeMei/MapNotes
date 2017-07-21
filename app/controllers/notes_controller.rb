@@ -3,7 +3,6 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
-    gon.note = @note.attributes
   end
 
   def new
@@ -18,16 +17,8 @@ class NotesController < ApplicationController
     end
   end
 
-  def index
-    @notes = current_user.notes
-    gon.notes=[]
-    @notes.each_with_index do |k, index|
-      gon.notes[index] = k.attributes
-    end
-  end
-
   def create
-    @note = current_user.notes.build(note_params)
+    @note = current_user.notes.build(content: params[:content],longitude:params[:longitude],latitude:params[:latitude],title:params[:title],taglist:params[:taglist])
     if @note.save
       redirect_to root_path
     else
@@ -38,7 +29,6 @@ class NotesController < ApplicationController
   def update
     @note = Note.find(params[:id])
     if @note.update_attributes(note_params)
-      # flash[:success]="Note updated!"
       respond_to do |format|
         format.js
       end

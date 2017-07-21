@@ -10,10 +10,8 @@ $(document).ready(function(){
 
     mymap.on('click', onMapClick);
     function onMapClick(e) {
-        $('.leaflet-shadow-pane').html("");
-        $('.leaflet-overlay-pane').html("");
-        $('.leaflet-marker-pane').html("");
-        $('.leaflet-popup-pane').html("");
+        $('.leaflet-shadow-pane').children().eq(-1).remove();
+        $('.leaflet-marker-pane').children().eq(-1).remove();
         $("input[id='note_latitude']").attr("value",e.latlng.lat);
         $("input[id='note_longitude']").attr("value",e.latlng.lng);
         var marker = new L.Marker(e.latlng);

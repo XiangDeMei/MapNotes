@@ -3,6 +3,9 @@
     <% if @notes %>
       <%= render @notes %>
     <% end %>
+  <div class="hidden">
+    <%= render 'notes/note_form', :h2 => "Create a Note" %>
+  </div>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -22,12 +25,19 @@
       <% end %>
     <% end %>
 
-//    $('#test').click(function () {
-//        $.ajax({
-//            type:"GET",
-//            url:"/notes/1"
-//        })
-//    });
-
+    var marker = L.marker([29.9090876153,121.6371381786]).addTo(mymap);
+    marker.bindPopup('<b>Click to create a new note</b>').openPopup();
+   
+    mymap.on('click', onMapClick);
+    function onMapClick(e) {
+        $('.leaflet-shadow-pane').children().eq(-1).remove();
+        $('.leaflet-marker-pane').children().eq(-1).remove();
+        $("input[id='latitude']").attr("value",e.latlng.lat);
+        $("input[id='longitude']").attr("value",e.latlng.lng);
+        var marker = new L.Marker(e.latlng);
+        mymap.addLayer(marker);
+        var form = $("#note-form-wrapper").html();
+        marker.bindPopup(form).openPopup();
+    }
 </script>
 

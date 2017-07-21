@@ -1,18 +1,14 @@
 <div id="note-form-wrapper">
-  <%= form_for @note do |f| %>
+  <%= form_tag notes_path, remote: true do %>
       <h2><%= h2 %></h2>
-      <%= f.label "Title" %>
-      <%= f.text_field :title %>
-      <%= f.label "Tag" %>
-      <%= f.text_field :taglist %>
-      <%= f.label "Content" %>
-      <%= f.text_area :content %>
-      <%= f.hidden_field :latitude %>
-      <%= f.hidden_field :longitude %>
-      <%= f.submit "Submit" %>
-  <% end %>
-  <% content_for :map_javascript do %>
-      <%= javascript_include_tag 'map/new_note' if @note.id.nil? %>
-      <%= javascript_include_tag 'map/edit_note.js' unless @note.id.nil? %>
+      <%= label_tag "Title" %>
+      <%= text_field_tag :title %>
+      <%= label_tag "Tag" %>
+      <%= text_field_tag :taglist %>
+      <%= label_tag "Content" %>
+      <%= text_area_tag :content %>
+      <%= hidden_field_tag :latitude %>
+      <%= hidden_field_tag :longitude %>
+      <%= submit_tag "Submit" %>
   <% end %>
 </div>
