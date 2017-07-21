@@ -6,7 +6,7 @@
     <%="#{time_ago_in_words(note.updated_at).capitalize} ago update "%>
   </h4>
   <% if note.user == current_user %>
-      <%= button_to "edit", edit_note_path(note), id: "edit"+<%=note.id%>, method: :get %>
-      <%= button_to "delete", note, method: :delete %>
+      <%= button_to "edit", edit_note_path(note), id: "edit_"+note.id.to_s, method: :get, remote: true %>
+      <%= button_to "delete", note, id: "delete_"+note.id.to_s, method: :delete %>
   <% end %>
 </div>

@@ -1,0 +1,12 @@
+<%= form_for @note, remote: true do |f| %>
+    <h2>Edit the Note</h2>
+    <%= f.label "Title" %>
+    <%= f.text_field :title %>
+    <%= f.label "Tag" %>
+    <%= f.text_field :taglist %>
+    <%= f.label "Content" %>
+    <%= f.text_area :content %>
+    <%= f.hidden_field :latitude %>
+    <%= f.hidden_field :longitude %>
+    <%= f.submit "Submit" %>
+<% end %>

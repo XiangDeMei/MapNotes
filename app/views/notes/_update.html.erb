@@ -1,0 +1,10 @@
+<h1><%= @note.title %></h1>
+<p><%= @note.content %></p>
+<h4><%="#{time_ago_in_words(@note.created_at).capitalize} ago create by "%>
+  <%= link_to @note.user.name, @note.user %>
+  <%="#{time_ago_in_words(@note.updated_at).capitalize} ago update "%>
+</h4>
+<% if @note.user == current_user %>
+    <%= button_to "edit", edit_note_path(@note), id: "edit_"+@note.id.to_s, method: :get, remote: true %>
+    <%= button_to "delete", @note, id: "delete_"+@note.id.to_s, method: :delete %>
+<% end %>

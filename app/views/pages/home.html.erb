@@ -1,6 +1,5 @@
 <div class="center">
   <div id="map"></div>
-  <%= button_tag "11111", id:"test"%>
     <% if @notes %>
       <%= render @notes %>
     <% end %>
@@ -23,13 +22,12 @@
       <% end %>
     <% end %>
 
-    $('#test').click(function () {
-        $.ajax({
-            type:"GET",
-            url:"/notes/1"
-        })
-    });
+//    $('#test').click(function () {
+//        $.ajax({
+//            type:"GET",
+//            url:"/notes/1"
+//        })
+//    });
 
-    $('')
 </script>
 

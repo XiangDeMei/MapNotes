@@ -12,7 +12,10 @@ class NotesController < ApplicationController
 
   def edit
     @note = Note.find(params[:id])
-    gon.note = @note.attributes
+    @note.taglist = @note.tags.map(&:name).join(',')
+    respond_to do |format|
+      format.js
+    end
   end
 
   def index
@@ -35,8 +38,10 @@ class NotesController < ApplicationController
   def update
     @note = Note.find(params[:id])
     if @note.update_attributes(note_params)
-      flash[:success]="Note updated!"
-      redirect_to root_path
+      # flash[:success]="Note updated!"
+      respond_to do |format|
+        format.js
+      end
     else
       render 'edit'
     end
